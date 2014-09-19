@@ -1,13 +1,23 @@
- //declare bacteria variables here   
+Bacteria [] Philip; 
  void setup()   
  {     
- 	size(500,500);
- 	//initialize bacteria variables here   
+    size(500,500);
+    Philip = new Bacteria[2];
+    for(int b = 0; b < Philip.length; b++)
+    {
+      Philip[b] = new Bacteria();
+    }
  }
 
  void draw()   
- {    
- 	//move and show the bacteria   
+ { 
+   background(0);
+   for(int b = 0; b < Philip.length; b++)
+   {
+      Philip[b].move();
+      Philip[b].show();
+   }
+   
  } 
 
  class Bacteria    
@@ -28,8 +38,32 @@
 
  	void move()
  	{
- 		bacX = bacX + (int)(Math.random()*2-1);
- 		bacY = bacY + (int)(Math.random()*2-1);
+            if(bacY > 480)
+            {
+              bacX = bacX + (int)(Math.random()*10-5);
+              bacY = bacY + (int)(Math.random()*19-19);
+            }
+            else if (bacX > 480)
+            {
+              bacX = bacX + (int)(Math.random()*19-19);
+              bacY = bacY + (int)(Math.random()*10-5);
+            }
+            else if (bacX < 20)
+            {
+              bacX = bacX + (int)(Math.random()*19+1);
+              bacY = bacY + (int)(Math.random()*10-5);
+            }
+            else if (bacY < 20)
+            {
+              bacX = bacX + (int)(Math.random()*10-5);
+              bacY = bacY + (int)(Math.random()*19+1);
+            }
+            else
+            {
+              bacX = bacX + (int)(Math.random()*10-5);
+              bacY = bacY + (int)(Math.random()*10-5);
+            }
+ 		
  	}
 
  	void show()
