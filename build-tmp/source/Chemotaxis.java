@@ -14,17 +14,36 @@ import java.io.IOException;
 
 public class Chemotaxis extends PApplet {
 
- //declare bacteria variables here   
+Bacteria [] Philip; 
  public void setup()   
  {     
- 	size(500,500);
- 	//initialize bacteria variables here   
+    size(500,500);
+    Philip = new Bacteria[150];
+    for(int b = 0; b < Philip.length; b++)
+    {
+      Philip[b] = new Bacteria();
+    }
  }
 
  public void draw()   
- {    
- 	//move and show the bacteria   
+ { 
+   background(0);
+   for(int b = 0; b < Philip.length; b++)
+   {
+      Philip[b].move();
+      Philip[b].show();
+   }
+   
  } 
+
+ public void mouseClicked()
+ {
+ 	int myX = mouseX;
+ 	int myY = mouseY;
+ 	fill(255);
+  	ellipse(myX, myY, 20, 20);
+  	println("Hi");
+ }
 
  class Bacteria    
  {     
@@ -44,8 +63,32 @@ public class Chemotaxis extends PApplet {
 
  	public void move()
  	{
- 		bacX = bacX + (int)(Math.random()*2-1);
- 		bacY = bacY + (int)(Math.random()*2-1);
+            if(bacY > 480)
+            {
+              bacX = bacX + (int)(Math.random()*10-5);
+              bacY = bacY + (int)(Math.random()*19-19);
+            }
+            else if (bacX > 480)
+            {
+              bacX = bacX + (int)(Math.random()*19-19);
+              bacY = bacY + (int)(Math.random()*10-5);
+            }
+            else if (bacX < 20)
+            {
+              bacX = bacX + (int)(Math.random()*19+1);
+              bacY = bacY + (int)(Math.random()*10-5);
+            }
+            else if (bacY < 20)
+            {
+              bacX = bacX + (int)(Math.random()*10-5);
+              bacY = bacY + (int)(Math.random()*19+1);
+            }
+            else
+            {
+              bacX = bacX + (int)(Math.random()*10-5);
+              bacY = bacY + (int)(Math.random()*10-5);
+            }
+ 		
  	}
 
  	public void show()

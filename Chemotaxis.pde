@@ -2,7 +2,7 @@ Bacteria [] Philip;
  void setup()   
  {     
     size(500,500);
-    Philip = new Bacteria[2];
+    Philip = new Bacteria[150];
     for(int b = 0; b < Philip.length; b++)
     {
       Philip[b] = new Bacteria();
@@ -19,6 +19,11 @@ Bacteria [] Philip;
    }
    
  } 
+
+ void mouseClicked()
+ {
+
+ }
 
  class Bacteria    
  {     
@@ -72,4 +77,23 @@ Bacteria [] Philip;
   	 	ellipse(bacX, bacY, 20, 20);
  	} 
 
- }    
+ } 
+ class Lysol
+ {
+  	int myX, myY;
+
+ 	Lysol()
+ 	{
+ 		myX = mouseX;
+ 		myY = mouseY;
+ 	}
+
+ 	void show()
+ 	{
+ 	int myX = mouseX;
+ 	int myY = mouseY;
+ 	fill(255);
+  	ellipse(myX, myY, 20, 20);
+  	println("Hi");
+ 	}
+ }
