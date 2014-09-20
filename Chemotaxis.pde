@@ -84,14 +84,14 @@ Bacteria [] Philip;
 
  	Lysol()
  	{
- 		myX = mouseX;
- 		myY = mouseY;
+ 		myX = -100;
+ 		myY = -100;
  	}
 
  	void show()
  	{
- 	int myX = mouseX;
- 	int myY = mouseY;
+ 	myX = mouseX;
+ 	myY = mouseY;
  	fill(255);
   	ellipse(myX, myY, 20, 20);
   	println("Hi");
