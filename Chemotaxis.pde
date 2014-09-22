@@ -1,5 +1,6 @@
 Bacteria [] Philip; 
- void setup()   
+Lysol Peter;
+void setup()   
  {     
     size(500,500);
     Philip = new Bacteria[150];
@@ -7,7 +8,8 @@ Bacteria [] Philip;
     {
       Philip[b] = new Bacteria();
     }
- }
+    Peter = new Lysol(); 
+}
 
  void draw()   
  { 
@@ -17,11 +19,16 @@ Bacteria [] Philip;
       Philip[b].move();
       Philip[b].show();
    }
+   Peter.show();
+   Peter.dissapear();
+   
    
  } 
 
  void mouseClicked()
  {
+ 	Peter.appear();
+ 	Peter.grow();
 
  }
 
@@ -73,6 +80,7 @@ Bacteria [] Philip;
 
  	void show()
  	{
+ 		strokeWeight(1);
  		fill(colour[0], colour[1], colour[2]);
   	 	ellipse(bacX, bacY, 20, 20);
  	} 
@@ -80,20 +88,45 @@ Bacteria [] Philip;
  } 
  class Lysol
  {
-  	int myX, myY;
+  	int myX, myY, size;
 
  	Lysol()
  	{
  		myX = -100;
  		myY = -100;
+ 		size = 0;
  	}
 
  	void show()
  	{
- 	myX = mouseX;
- 	myY = mouseY;
- 	fill(255);
-  	ellipse(myX, myY, 20, 20);
-  	println("Hi");
+ 	 	fill(255);
+ 	 	noStroke();
+  	 	ellipse(myX, myY, size, size);
+  	 	if(size >= 1)
+  	 	{
+ 	 	  	size=size+3;
+  	 	}
  	}
+
+ 	void appear()
+ 	{
+ 		myX = mouseX;
+ 		myY = mouseY;
+ 	}
+
+ 	void grow()
+ 	{
+ 		size = 1;
+ 	}
+
+ 	void dissapear()
+ 	{
+ 		if(size >= 120 )
+ 		{
+ 	  	 	myX = -100;
+ 		 	myY = -100;
+ 		 	size = 0;
+ 		}
+ 	}
+ 	
  }

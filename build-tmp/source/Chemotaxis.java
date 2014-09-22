@@ -15,7 +15,8 @@ import java.io.IOException;
 public class Chemotaxis extends PApplet {
 
 Bacteria [] Philip; 
- public void setup()   
+Lysol Peter;
+public void setup()   
  {     
     size(500,500);
     Philip = new Bacteria[150];
@@ -23,7 +24,8 @@ Bacteria [] Philip;
     {
       Philip[b] = new Bacteria();
     }
- }
+    Peter = new Lysol(); 
+}
 
  public void draw()   
  { 
@@ -33,16 +35,17 @@ Bacteria [] Philip;
       Philip[b].move();
       Philip[b].show();
    }
+   Peter.show();
+   Peter.dissapear();
+   
    
  } 
 
  public void mouseClicked()
  {
- 	int myX = mouseX;
- 	int myY = mouseY;
- 	fill(255);
-  	ellipse(myX, myY, 20, 20);
-  	println("Hi");
+ 	Peter.appear();
+ 	Peter.grow();
+
  }
 
  class Bacteria    
@@ -93,11 +96,56 @@ Bacteria [] Philip;
 
  	public void show()
  	{
+ 		strokeWeight(1);
  		fill(colour[0], colour[1], colour[2]);
   	 	ellipse(bacX, bacY, 20, 20);
  	} 
 
- }    
+ } 
+ class Lysol
+ {
+  	int myX, myY, size;
+
+ 	Lysol()
+ 	{
+ 		myX = -100;
+ 		myY = -100;
+ 		size = 0;
+ 	}
+
+ 	public void show()
+ 	{
+ 	 	fill(255);
+ 	 	noStroke();
+  	 	ellipse(myX, myY, size, size);
+  	 	if(size >= 1)
+  	 	{
+ 	 	  	size=size+3;
+  	 	}
+ 	}
+
+ 	public void appear()
+ 	{
+ 		myX = mouseX;
+ 		myY = mouseY;
+ 	}
+
+ 	public void grow()
+ 	{
+ 		size = 1;
+ 	}
+
+ 	public void dissapear()
+ 	{
+ 		if(size >= 120 )
+ 		{
+ 	  	 	myX = -100;
+ 		 	myY = -100;
+ 		 	size = 0;
+ 		}
+ 	}
+ 	
+ }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "Chemotaxis" };
     if (passedArgs != null) {
