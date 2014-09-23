@@ -50,6 +50,12 @@ void setup()
 
  	void move()
  	{
+            //Trying to add movement away from lysol DO I really need to add 20 lines of code to do so
+            /*if(dist(Peter.myX,Peter.myY,Philip[i].bacX,Philip[i].bacY) =< (Peter.size +25))
+            {
+              
+            }
+            else*/ 
             if(bacY > 480)
             {
               bacX = bacX + (int)(Math.random()*10-5);
