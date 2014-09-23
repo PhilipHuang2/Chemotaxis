@@ -70,44 +70,38 @@ public void setup()
             //Trying to add movement away from lysol DO I really need to add 20 lines of code to do so
             
             if(
-            	dist(
-            		bacX, bacY, Peter.myX, Peter.myY 
-            		) 
-            	 <=
-            	     
-            	Peter.size + 20 
-            		
-              )
+            	dist(bacX, bacY, Peter.myX, Peter.myY) <= Peter.size + 20)
             {
               System.out.println("I'm Hit");
             }
             else
-            
-            if(bacY > 480)
             {
-              bacX = bacX + (int)(Math.random()*10-5);
-              bacY = bacY + (int)(Math.random()*19-19);
-            }
-            else if (bacX > 480)
-            {
-              bacX = bacX + (int)(Math.random()*19-19);
-              bacY = bacY + (int)(Math.random()*10-5);
-            }
-            else if (bacX < 20)
-            {
-              bacX = bacX + (int)(Math.random()*19+1);
-              bacY = bacY + (int)(Math.random()*10-5);
-            }
-            else if (bacY < 20)
-            {
-              bacX = bacX + (int)(Math.random()*10-5);
-              bacY = bacY + (int)(Math.random()*19+1);
-            }
-            else
-            {
-              bacX = bacX + (int)(Math.random()*10-5);
-              bacY = bacY + (int)(Math.random()*10-5);
-            }
+            	if(bacY > 480)
+            	{
+            	  bacX = bacX + (int)(Math.random()*10-5);
+            	  bacY = bacY + (int)(Math.random()*19-19);
+            	}
+            	else if (bacX > 480)
+           		{
+            	  bacX = bacX + (int)(Math.random()*19-19);
+            	  bacY = bacY + (int)(Math.random()*10-5);
+            	}
+            	else if (bacX < 20)
+            	{
+              		bacX = bacX + (int)(Math.random()*19+1);
+              		bacY = bacY + (int)(Math.random()*10-5);
+            	}
+            	else if (bacY < 20)
+            	{
+              		bacX = bacX + (int)(Math.random()*10-5);
+              		bacY = bacY + (int)(Math.random()*19+1);
+            	}
+            	else
+            	{
+              		bacX = bacX + (int)(Math.random()*10-5);
+               		bacY = bacY + (int)(Math.random()*10-5);
+            	}
+        	}	 
  		
  	}
 
