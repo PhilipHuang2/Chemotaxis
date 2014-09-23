@@ -1,14 +1,15 @@
-Bacteria [] Philip; 
 Lysol Peter;
+Bacteria [] Philip; 
+
 void setup()   
  {     
     size(500,500);
+    Peter = new Lysol(); 
     Philip = new Bacteria[150];
     for(int b = 0; b < Philip.length; b++)
     {
       Philip[b] = new Bacteria();
     }
-    Peter = new Lysol(); 
 }
 
  void draw()   
@@ -51,11 +52,21 @@ void setup()
  	void move()
  	{
             //Trying to add movement away from lysol DO I really need to add 20 lines of code to do so
-            /*if(dist(Peter.myX,Peter.myY,Philip[i].bacX,Philip[i].bacY) =< (Peter.size +25))
+            
+            if(
+            	dist(
+            		bacX, bacY, Peter.myX, Peter.myY 
+            		) 
+            	 <=
+            	     
+            	Peter.size + 20 
+            		
+              )
             {
-              
+              System.out.println("I'm Hit");
             }
-            else*/ 
+            else
+            
             if(bacY > 480)
             {
               bacX = bacX + (int)(Math.random()*10-5);
