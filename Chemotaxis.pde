@@ -54,9 +54,24 @@ void setup()
             //Trying to add movement away from lysol DO I really need to add 20 lines of code to do so
             
             if(
-            	dist(bacX, bacY, Peter.myX, Peter.myY) <= Peter.size + 20)
+            	dist(bacX, bacY, Peter.myX, Peter.myY) <= Peter.size +5)
             {
-              System.out.println("I'm Hit");
+              if(bacX > Peter.myX)
+              {
+               	bacX = bacX + (int)(Math.random()*7-2); 	
+ 	 	 	 	if(bacY > Peter.myY)
+ 				bacY = bacY + (int)(Math.random()*7-2);
+ 	 	 	 	else
+  	 		 	bacY = bacY - (int)(Math.random()*7-2);
+              }
+              else
+              {
+              	 bacX = bacX - (int)(Math.random()*7-2); 
+ 	 		 	 if(bacY > Peter.myY)
+ 				 bacY = bacY + (int)(Math.random()*7-2);
+ 	 	 	 	 else
+  	 		 	 bacY = bacY - (int)(Math.random()*7-2);
+              }
             }
             else
             {
