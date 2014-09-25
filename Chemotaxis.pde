@@ -19,6 +19,7 @@ void setup()
    {
       Philip[b].move();
       Philip[b].show();
+      Philip[b].die();
    }
    Peter.show();
    Peter.dissapear();
@@ -50,27 +51,28 @@ void setup()
  	}
 
  	void move()
- 	{
-            //Trying to add movement away from lysol DO I really need to add 20 lines of code to do so
-            
-            if(
-            	dist(bacX, bacY, Peter.myX, Peter.myY) <= Peter.size +5)
+ 	{       
+            if( bacX == -100 && bacY == -100) 
+            {
+ 				
+            }
+             else if(dist(bacX, bacY, Peter.myX, Peter.myY) <= Peter.size +5)
             {
               if(bacX > Peter.myX)
               {
-               	bacX = bacX + (int)(Math.random()*7-2); 	
+               	bacX = bacX + (int)(Math.random()*4); 	
  	 	 	 	if(bacY > Peter.myY)
- 				bacY = bacY + (int)(Math.random()*7-2);
+ 				bacY = bacY + (int)(Math.random()*4);
  	 	 	 	else
-  	 		 	bacY = bacY - (int)(Math.random()*7-2);
+  	 		 	bacY = bacY - (int)(Math.random()*4);
               }
               else
               {
-              	 bacX = bacX - (int)(Math.random()*7-2); 
+              	 bacX = bacX - (int)(Math.random()*4); 
  	 		 	 if(bacY > Peter.myY)
- 				 bacY = bacY + (int)(Math.random()*7-2);
+ 				 bacY = bacY + (int)(Math.random()*4);
  	 	 	 	 else
-  	 		 	 bacY = bacY - (int)(Math.random()*7-2);
+  	 		 	 bacY = bacY - (int)(Math.random()*4);
               }
             }
             else
@@ -101,7 +103,6 @@ void setup()
                		bacY = bacY + (int)(Math.random()*10-5);
             	}
         	}	 
- 		
  	}
 
  	void show()
@@ -110,6 +111,15 @@ void setup()
  		fill(colour[0], colour[1], colour[2]);
   	 	ellipse(bacX, bacY, 20, 20);
  	} 
+
+ 	void die()
+ 	{
+ 		if(dist(bacX, bacY, Peter.myX, Peter.myY) < (Peter.size ))
+ 		{
+ 			bacX = -100;
+ 			bacY = -100;
+ 		}
+ 	}
 
  } 
  class Lysol
