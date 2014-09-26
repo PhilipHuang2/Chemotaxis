@@ -56,7 +56,7 @@ void setup()
             {
  				
             }
-             else if(dist(bacX, bacY, Peter.myX, Peter.myY) <= Peter.size +5)
+             else if(dist(bacX, bacY, Peter.myX, Peter.myY) <= Peter.size +10)
             {
               if(bacX > Peter.myX)
               {
@@ -114,8 +114,8 @@ void setup()
 
  	void die()
  	{
- 		if(dist(bacX, bacY, Peter.myX, Peter.myY) < (Peter.size ))
- 		{
+ 		if(dist(bacX, bacY, Peter.myX, Peter.myY) < (Peter.size - 20 ))
+ 		{ 
  			bacX = -100;
  			bacY = -100;
  		}
